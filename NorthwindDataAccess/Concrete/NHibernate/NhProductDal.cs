@@ -3,6 +3,7 @@ using NorthwindEntities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,9 +26,9 @@ namespace NorthwindDataAccess.NHibernate
             throw new NotImplementedException();
         }
 
-        public List<Product> GetAll()
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            List<Product> products = new List<Product> 
+            List<Product> products = new List<Product>
             {
                 new Product{ ProductId = 1, CategoryId=1,ProductName="Laptop",QuantityPerUnit = "1 in a box",UnitPrice=3000,UnitsInStock=7},
             };
