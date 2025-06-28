@@ -1,4 +1,7 @@
-﻿using NorthwindBusiness.Concrete;
+﻿using NorthwindBusiness.Abstract;
+using NorthwindBusiness.Concrete;
+using NorthwindDataAccess.Concrete.EntityFramework;
+using NorthwindDataAccess.NHibernate;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +19,13 @@ namespace NorthwindWebFromsUI
         public Form1()
         {
             InitializeComponent();
+            _productService = new ProductManager(new NhProductDal());
         }
+        IProductService _productService;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ProductManager productManager = new ProductManager();
-            dgwProduct.DataSource = productManager.GetAll();
+            dgwProduct.DataSource = _productService.GetAll();
 
         }
 

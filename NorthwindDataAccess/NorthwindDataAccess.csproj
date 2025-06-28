@@ -51,13 +51,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Concrete\NorthwindContext.cs" />
-    <Compile Include="Concrete\ProductDal.cs" />
+    <Compile Include="Concrete\EfProductDal.cs" />
+    <Compile Include="NHibernate\NhProductDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Abstract\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\NorthwindEntities\NorthwindEntities.csproj">
       <Project>{eee192d1-6ce4-41bd-b0df-6f60d236f776}</Project>
