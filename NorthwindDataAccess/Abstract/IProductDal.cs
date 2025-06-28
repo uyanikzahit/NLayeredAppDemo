@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 
 namespace NorthwindDataAccess.Abstract
 {
-    public interface IProductDal
+    public interface IProductDal:IEntitiyRepository <Product>
     {
-        List<Product> GetAll();
-        Product Get(int id);
-        void Add(Product product);
-        void Update(Product product);
-        void Delete(Product product);
+
 
     }
 }
