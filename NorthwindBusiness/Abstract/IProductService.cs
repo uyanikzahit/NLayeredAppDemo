@@ -9,6 +9,7 @@ namespace NorthwindBusiness.Abstract
 {
     public interface IProductService
     {
+        void Add(Product product);
         List<Product> GetAll();
         List<Product> GetProductsByCategory(int categoryId);
         List<Product> GetProductsByName(string productName);
