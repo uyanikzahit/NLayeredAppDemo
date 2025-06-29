@@ -68,5 +68,18 @@ namespace NorthwindWebFromsUI
             }
 
         }
+
+        private void tbxProductName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(tbxProductName.Text))
+            {
+                dgwProduct.DataSource = _productService.GetProductsByName(tbxProductName.Text);
+            }
+            else
+            {
+                LoadProducts();
+            }
+
+        }
     }
 }

@@ -97,6 +97,7 @@
             this.tbxProductName.Name = "tbxProductName";
             this.tbxProductName.Size = new System.Drawing.Size(237, 21);
             this.tbxProductName.TabIndex = 1;
+            this.tbxProductName.SelectedIndexChanged += new System.EventHandler(this.tbxProductName_SelectedIndexChanged);
             // 
             // lblProductName
             // 
