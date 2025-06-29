@@ -19,18 +19,53 @@ namespace NorthwindWebFromsUI
         public Form1()
         {
             InitializeComponent();
-            _productService = new ProductManager(new NhProductDal());
+            _productService = new ProductManager(new EfProductDal());
+            _categoryService = new CategoryManager(new EfCategoryDal());
         }
-        IProductService _productService;
+        private IProductService _productService;
+        private ICategoryService _categoryService;
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dgwProduct.DataSource = _productService.GetAll();
 
+            LoadProducts();
+            LoadCategories();
         }
+
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void gbxCategory_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadProducts()
+        {
+            dgwProduct.DataSource = _productService.GetAll();
+        }
+
+
+        private void LoadCategories()
+        {
+            cbxCategory.DataSource = _categoryService.GetAll();
+            cbxCategory.DisplayMember = "CategoryName";
+            cbxCategory.ValueMember = "CategoryId";
+        }
+
+        private void cbxCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgwProduct.DataSource = _productService.GetProductsByCategory(
+                Convert.ToInt32(cbxCategory.SelectedValue));
+            }
+            catch
+            {
+            }
 
         }
     }
